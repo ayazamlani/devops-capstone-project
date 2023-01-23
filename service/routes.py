@@ -60,11 +60,9 @@ def create_accounts():
 ######################################################################
 # LIST ALL ACCOUNTS
 ######################################################################
-
-# ... place you code here to LIST accounts ...
 @app.route("/accounts", methods=["GET"])
 def list_accounts():
-    app.logger.info(f"Request to read all Account")
+    app.logger.info("Request to read all Account")
     accounts = Account.all()
     if not accounts:
         abort(status.HTTP_404_NOT_FOUND, f"Account [{id}] could not be found.")
@@ -75,8 +73,6 @@ def list_accounts():
 ######################################################################
 # READ AN ACCOUNT
 ######################################################################
-
-# ... place you code here to READ an account ...
 @app.route("/accounts/<int:id>", methods=["GET"])
 def read_account(id):
     """
@@ -129,8 +125,6 @@ def delete_accounts(account_id):
 ######################################################################
 #  U T I L I T Y   F U N C T I O N S
 ######################################################################
-
-
 def check_content_type(media_type):
     """Checks that the media type is correct"""
     content_type = request.headers.get("Content-Type")
